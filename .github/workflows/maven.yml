@@ -20,7 +20,6 @@ permissions:  # Define as permissões necessárias
   pull-requests: write
   actions: write
   id-token: write
-  dependency-graph: write  # Necessário para submissão do gráfico de dependências
 jobs:
   build:
 
