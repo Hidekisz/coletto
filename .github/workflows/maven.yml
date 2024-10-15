@@ -55,6 +55,7 @@ jobs:
       with:
         java-package: jdk
         java-version: '17'
+        distribution: 'temurin'
 
     - name: Compilando a aplicação
       run: mvn clean package -DskipTests
