@@ -86,11 +86,9 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Conectando ao servidor de staging
-        run: |
-          curl -X POST \
-          -H "Accept: application/json" \
-          -H "Authorization: Bearer ${secrets.RENDER_API_KEY}" \
-          -H "Content-Type: application/json" \
-          --data '{"serviceId": "<srv-cs7i5ibtq21c73c6pa90>", "branch": "main"}' \
-          https://api.render.com/v1/services/<srv-cs7i5ibtq21c73c6pa90>/deploys
+      - name: Deploy to render
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          wait-for-success: true
